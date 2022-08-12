@@ -1,0 +1,52 @@
+---
+- name: include-json module
+  hosts: test
+  gather_facts: false
+
+  collections:
+    - io_github_serpro69.helloworld_kotlin
+
+  tasks:
+    - name: Hello, World!
+      includejson:
+
+    - name: Hello, Ansible!
+      includejson:
+        name: Ansible
+
+    - name: Async Hello, World!
+      includejson:
+      async: 10
+      poll: 1
+
+    - name: Async Hello, Ansible!
+      includejson:
+        name: Ansible
+      async: 10
+      poll: 1
+
+- name: want-json module
+  hosts: test
+  gather_facts: false
+
+  collections:
+    - io_github_serpro69.helloworld_kotlin
+
+  tasks:
+    - name: Hello, World!
+      wantjson:
+
+    - name: Hello, Ansible!
+      wantjson:
+        name: Ansible
+
+    - name: Async Hello, World!
+      wantjson:
+      async: 10
+      poll: 1
+
+    - name: Async Hello, Ansible!
+      wantjson:
+        name: Ansible
+      async: 10
+      poll: 1
